@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Sales Business Analysis Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div>
+
+        <h1>Sales Performance Dashboard</h1>
+
+        <p>Business Analysis Project</p>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+    <!-- ==========================================
+         TITLE
+    ========================================== -->
+
+    <section class="page-title">
+
+        <h2>Sales Overview</h2>
+
+        <p>
+            Interactive analysis of sales, costs and profitability.
+        </p>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         KPI CARDS
+    ========================================== -->
+
+    <section class="cards">
+
+
+        <div class="card">
+
+            <span>Total Sales</span>
+
+            <strong id="totalSales">₹0</strong>
+
+        </div>
+
+
+        <div class="card">
+
+            <span>Total Cost</span>
+
+            <strong id="totalCost">₹0</strong>
+
+        </div>
+
+
+        <div class="card profit-card">
+
+            <span>Total Profit</span>
+
+            <strong id="totalProfit">₹0</strong>
+
+        </div>
+
+
+        <div class="card">
+
+            <span>Total Orders</span>
+
+            <strong id="totalOrders">0</strong>
+
+        </div>
+
+
+        <div class="card">
+
+            <span>Average Order Value</span>
+
+            <strong id="averageOrder">₹0</strong>
+
+        </div>
+
+
+        <div class="card">
+
+            <span>Profit Margin</span>
+
+            <strong id="profitMargin">0%</strong>
+
+        </div>
+
+
+        <div class="card">
+
+            <span>Best Product</span>
+
+            <strong id="bestProduct">-</strong>
+
+        </div>
+
+
+        <div class="card">
+
+            <span>Best Region</span>
+
+            <strong id="bestRegion">-</strong>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==========================================
+         FILTERS
+    ========================================== -->
+
+    <section class="filters">
+
+
+        <div class="filter">
+
+            <label for="regionFilter">
+                Region
+            </label>
+
+            <select id="regionFilter">
+
+                <option value="All">All Regions</option>
+
+            </select>
+
+        </div>
+
+
+
+        <div class="filter">
+
+            <label for="productFilter">
+                Product
+            </label>
+
+            <select id="productFilter">
+
+                <option value="All">All Products</option>
+
+            </select>
+
+        </div>
+
+
+
+        <div class="filter">
+
+            <label for="monthFilter">
+                Month
+            </label>
+
+            <select id="monthFilter">
+
+                <option value="All">All Months</option>
+
+            </select>
+
+        </div>
+
+
+        <button id="resetFilters">
+            Reset Filters
+        </button>
+
+
+    </section>
+
+
+
+    <!-- ==========================================
+         ACTION BUTTONS
+    ========================================== -->
+
+    <section class="actions">
+
+        <button id="exportBtn">
+            Export CSV
+        </button>
+
+        <button id="printBtn">
+            Print / Save Report
+        </button>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         CHARTS
+    ========================================== -->
+
+    <section class="charts">
+
+
+        <div class="chart-box">
+
+            <h3>Sales by Region</h3>
+
+            <canvas id="regionChart"></canvas>
+
+        </div>
+
+
+        <div class="chart-box">
+
+            <h3>Sales by Product</h3>
+
+            <canvas id="productChart"></canvas>
+
+        </div>
+
+
+        <div class="chart-box full-chart">
+
+            <h3>Monthly Sales & Profit</h3>
+
+            <canvas id="monthlyChart"></canvas>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==========================================
+         PROFIT ANALYSIS
+    ========================================== -->
+
+    <section class="analysis">
+
+        <div class="section-heading">
+
+            <h2>Profit Analysis</h2>
+
+            <p>
+                Key profitability indicators based on the selected data.
+            </p>
+
+        </div>
+
+
+        <div class="analysis-grid">
+
+
+            <div class="analysis-item">
+
+                <span>Total Revenue</span>
+
+                <strong id="analysisSales">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="analysis-item">
+
+                <span>Total Cost</span>
+
+                <strong id="analysisCost">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="analysis-item">
+
+                <span>Total Profit</span>
+
+                <strong id="analysisProfit">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="analysis-item">
+
+                <span>Profit Margin</span>
+
+                <strong id="analysisMargin">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="analysis-item">
+
+                <span>Highest Profit Product</span>
+
+                <strong id="highestProfitProduct">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="analysis-item">
+
+                <span>Lowest Profit Product</span>
+
+                <strong id="lowestProfitProduct">
+                    -
+                </strong>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         SALES TABLE
+    ========================================== -->
+
+    <section class="table-section">
+
+
+        <div class="section-heading">
+
+            <h2>Sales Data</h2>
+
+            <p>
+                Showing filtered sales records.
+            </p>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>Order ID</th>
+
+                    <th>Date</th>
+
+                    <th>Product</th>
+
+                    <th>Category</th>
+
+                    <th>Region</th>
+
+                    <th>Sales</th>
+
+                    <th>Cost</th>
+
+                    <th>Profit</th>
+
+                </tr>
+
+                </thead>
+
+
+                <tbody id="salesTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         BUSINESS INSIGHTS
+    ========================================== -->
+
+    <section class="insights">
+
+        <div class="section-heading">
+
+            <h2>Business Insights</h2>
+
+            <p>
+                Important findings from the selected data.
+            </p>
+
+        </div>
+
+
+        <div id="insightsBox">
+
+        </div>
+
+    </section>
+
+
+
+</main>
+
+
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="data.js"></script>
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

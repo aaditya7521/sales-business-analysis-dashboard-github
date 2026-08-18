@@ -1,0 +1,657 @@
+/* ==========================================
+   GLOBAL
+========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f4f6f8;
+
+    color: #1f2937;
+}
+
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+header {
+
+    background: #1f2937;
+
+    color: white;
+
+    padding: 20px 32px;
+
+}
+
+header h1 {
+
+    margin: 0;
+
+    font-size: 26px;
+
+}
+
+header p {
+
+    margin: 5px 0 0;
+
+    color: #cbd5e1;
+
+    font-size: 13px;
+
+}
+
+
+
+/* ==========================================
+   MAIN
+========================================== */
+
+main {
+
+    width: 95%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 25px 0 40px;
+
+}
+
+
+
+/* ==========================================
+   PAGE TITLE
+========================================== */
+
+.page-title {
+
+    margin-bottom: 18px;
+
+}
+
+.page-title h2 {
+
+    margin: 0;
+
+    font-size: 21px;
+
+}
+
+.page-title p {
+
+    margin: 5px 0 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+}
+
+
+
+/* ==========================================
+   KPI CARDS
+========================================== */
+
+.cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 18px;
+
+}
+
+.card {
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    padding: 15px 17px;
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,0.04);
+
+}
+
+.card span {
+
+    display: block;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    margin-bottom: 7px;
+
+}
+
+.card strong {
+
+    display: block;
+
+    color: #111827;
+
+    font-size: 19px;
+
+}
+
+.profit-card strong {
+
+    color: #15803d;
+
+}
+
+
+
+/* ==========================================
+   FILTERS
+========================================== */
+
+.filters {
+
+    display: flex;
+
+    align-items: end;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    background: white;
+
+    padding: 15px;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    margin-bottom: 12px;
+
+}
+
+.filter {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+}
+
+.filter label {
+
+    font-size: 12px;
+
+    color: #475569;
+
+    font-weight: 600;
+
+}
+
+select {
+
+    min-width: 150px;
+
+    padding: 8px 10px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 5px;
+
+    background: white;
+
+    color: #1f2937;
+
+}
+
+button {
+
+    border: none;
+
+    border-radius: 5px;
+
+    padding: 9px 15px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    font-size: 13px;
+
+}
+
+#resetFilters {
+
+    background: #64748b;
+
+    color: white;
+
+}
+
+#resetFilters:hover {
+
+    background: #475569;
+
+}
+
+
+
+/* ==========================================
+   ACTION BUTTONS
+========================================== */
+
+.actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+
+}
+
+#exportBtn {
+
+    background: #2563eb;
+
+    color: white;
+
+}
+
+#printBtn {
+
+    background: #16a34a;
+
+    color: white;
+
+}
+
+#exportBtn:hover {
+
+    background: #1d4ed8;
+
+}
+
+#printBtn:hover {
+
+    background: #15803d;
+
+}
+
+
+
+/* ==========================================
+   CHARTS
+========================================== */
+
+.charts {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 16px;
+
+    margin-bottom: 18px;
+
+}
+
+.chart-box {
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    padding: 15px;
+
+    height: 330px;
+
+}
+
+.chart-box h3 {
+
+    margin: 0 0 12px;
+
+    font-size: 15px;
+
+}
+
+.full-chart {
+
+    grid-column: 1 / -1;
+
+    height: 330px;
+
+}
+
+
+
+/* ==========================================
+   PROFIT ANALYSIS
+========================================== */
+
+.analysis {
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    padding: 18px;
+
+    margin-bottom: 18px;
+
+}
+
+.section-heading {
+
+    margin-bottom: 14px;
+
+}
+
+.section-heading h2 {
+
+    margin: 0;
+
+    font-size: 17px;
+
+}
+
+.section-heading p {
+
+    margin: 4px 0 0;
+
+    font-size: 12px;
+
+    color: #64748b;
+
+}
+
+.analysis-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+}
+
+.analysis-item {
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 6px;
+
+    padding: 13px;
+
+}
+
+.analysis-item span {
+
+    display: block;
+
+    font-size: 12px;
+
+    color: #64748b;
+
+    margin-bottom: 6px;
+
+}
+
+.analysis-item strong {
+
+    font-size: 17px;
+
+}
+
+
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.table-section {
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    padding: 18px;
+
+    margin-bottom: 18px;
+
+}
+
+.table-wrapper {
+
+    overflow-x: auto;
+
+}
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 12px;
+
+}
+
+th {
+
+    background: #1f2937;
+
+    color: white;
+
+    padding: 10px;
+
+    text-align: left;
+
+}
+
+td {
+
+    padding: 9px 10px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+}
+
+tbody tr:hover {
+
+    background: #f8fafc;
+
+}
+
+.profit-positive {
+
+    color: #15803d;
+
+    font-weight: 600;
+
+}
+
+
+
+/* ==========================================
+   INSIGHTS
+========================================== */
+
+.insights {
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    padding: 18px;
+
+}
+
+.insight {
+
+    background: #f8fafc;
+
+    border-left: 4px solid #2563eb;
+
+    padding: 11px 13px;
+
+    margin-bottom: 8px;
+
+    border-radius: 4px;
+
+    font-size: 13px;
+
+}
+
+.insight:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+
+    .cards {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .charts {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .full-chart {
+
+        grid-column: auto;
+
+    }
+
+    .analysis-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+
+@media (max-width: 600px) {
+
+    main {
+
+        width: 92%;
+
+    }
+
+    .cards {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .analysis-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .actions {
+
+        justify-content: stretch;
+
+    }
+
+    .actions button {
+
+        flex: 1;
+
+    }
+
+}
+/* ==========================================
+   PRINT REPORT
+========================================== */
+
+@media print {
+
+    body {
+        background: white;
+    }
+
+    header {
+        background: white;
+        color: black;
+        border-bottom: 2px solid #1f2937;
+    }
+
+    .filters,
+    .actions {
+        display: none;
+    }
+
+    .card,
+    .chart-box,
+    .analysis,
+    .table-section,
+    .insights {
+        box-shadow: none;
+        break-inside: avoid;
+    }
+
+    main {
+        width: 100%;
+        max-width: none;
+        padding: 10px;
+    }
+
+}
