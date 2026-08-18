@@ -61,17 +61,11 @@ header p {
 ========================================== */
 
 main {
-
-    width: 95%;
-
-    max-width: 1200px;
-
-    margin: auto;
-
-    padding: 25px 0 40px;
-
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 25px 30px 40px;
 }
-
 
 
 /* ==========================================
@@ -654,4 +648,101 @@ tbody tr:hover {
         padding: 10px;
     }
 
+}
+/* ==========================================
+   HEADER CONTROLS
+========================================== */
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.header-buttons button {
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 9px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.header-buttons button:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+/* ==========================================
+   DARK THEME
+========================================== */
+
+body.dark-theme {
+    background: #111827;
+    color: #f3f4f6;
+}
+
+body.dark-theme .page-title p {
+    color: #9ca3af;
+}
+
+body.dark-theme .card,
+body.dark-theme .filters,
+body.dark-theme .chart-box,
+body.dark-theme .analysis-item,
+body.dark-theme .table-section,
+body.dark-theme .insights {
+    background: #1f2937;
+    border-color: #374151;
+    color: #f3f4f6;
+}
+
+body.dark-theme .card span,
+body.dark-theme .filter label {
+    color: #9ca3af;
+}
+
+body.dark-theme .card strong {
+    color: #f9fafb;
+}
+
+body.dark-theme .profit-card strong {
+    color: #4ade80;
+}
+
+body.dark-theme select {
+    background: #111827;
+    color: #f3f4f6;
+    border-color: #4b5563;
+}
+
+body.dark-theme .section-heading p {
+    color: #9ca3af;
+}
+
+body.dark-theme table {
+    color: #f3f4f6;
+}
+
+body.dark-theme th {
+    background: #374151;
+    color: #f9fafb;
+}
+
+body.dark-theme td {
+    border-color: #374151;
+}
+
+body.dark-theme tr:nth-child(even) {
+    background: #18212f;
+}
+
+body.dark-theme .insight-item {
+    background: #1f2937;
+    border-color: #374151;
 }
