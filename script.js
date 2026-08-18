@@ -1292,3 +1292,63 @@ document.getElementById(
 populateFilters();
 
 updateDashboard();
+// ==========================================
+// THEME TOGGLE
+// ==========================================
+
+const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", function () {
+
+    document.body.classList.toggle("dark-theme");
+
+    if (document.body.classList.contains("dark-theme")) {
+
+        themeToggle.innerHTML = "☀️ Light Mode";
+
+        localStorage.setItem("theme", "dark");
+
+    } else {
+
+        themeToggle.innerHTML = "🌙 Dark Mode";
+
+        localStorage.setItem("theme", "light");
+
+    }
+
+});
+
+
+// Load saved theme
+if (localStorage.getItem("theme") === "dark") {
+
+    document.body.classList.add("dark-theme");
+
+    themeToggle.innerHTML = "☀️ Light Mode";
+
+}
+
+
+// ==========================================
+// FULLSCREEN
+// ==========================================
+
+const fullscreenBtn = document.getElementById("fullscreenBtn");
+
+fullscreenBtn.addEventListener("click", function () {
+
+    if (!document.fullscreenElement) {
+
+        document.documentElement.requestFullscreen();
+
+        fullscreenBtn.innerHTML = "✕ Exit Fullscreen";
+
+    } else {
+
+        document.exitFullscreen();
+
+        fullscreenBtn.innerHTML = "⛶ Fullscreen";
+
+    }
+
+});
