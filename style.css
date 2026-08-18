@@ -679,7 +679,7 @@ tbody tr:hover {
     background: rgba(255, 255, 255, 0.22);
 }
 /* ==========================================
-   DARK THEME
+   DARK THEME - FIXED
 ========================================== */
 
 body.dark-theme {
@@ -687,14 +687,16 @@ body.dark-theme {
     color: #f3f4f6;
 }
 
+/* Page subtitle */
 body.dark-theme .page-title p {
     color: #9ca3af;
 }
 
+/* Main cards and sections */
 body.dark-theme .card,
 body.dark-theme .filters,
 body.dark-theme .chart-box,
-body.dark-theme .analysis-item,
+body.dark-theme .analysis,
 body.dark-theme .table-section,
 body.dark-theme .insights {
     background: #1f2937;
@@ -702,28 +704,34 @@ body.dark-theme .insights {
     color: #f3f4f6;
 }
 
+/* Card labels */
 body.dark-theme .card span,
-body.dark-theme .filter label {
+body.dark-theme .filter label,
+body.dark-theme .section-heading p {
     color: #9ca3af;
 }
 
+/* Card values */
 body.dark-theme .card strong {
     color: #f9fafb;
 }
 
-body.dark-theme .profit-card strong {
+/* Profit */
+body.dark-theme .profit-card strong,
+body.dark-theme .profit-positive {
     color: #4ade80;
 }
 
+/* Dropdowns */
 body.dark-theme select {
     background: #111827;
     color: #f3f4f6;
     border-color: #4b5563;
 }
 
-body.dark-theme .section-heading p {
-    color: #9ca3af;
-}
+/* ==========================================
+   TABLE
+========================================== */
 
 body.dark-theme table {
     color: #f3f4f6;
@@ -731,54 +739,53 @@ body.dark-theme table {
 
 body.dark-theme th {
     background: #374151;
-    color: #f9fafb;
+    color: #ffffff;
 }
 
 body.dark-theme td {
+    color: #f3f4f6;
     border-color: #374151;
 }
 
-body.dark-theme tr:nth-child(even) {
+/* ALL table rows dark */
+body.dark-theme tbody tr {
+    background: #1f2937;
+}
+
+/* Alternate rows */
+body.dark-theme tbody tr:nth-child(even) {
     background: #18212f;
 }
 
-body.dark-theme .insight-item {
-    background: #1f2937;
-    border-color: #374151;
-}
-@media (max-width: 900px) {
-
-    main {
-        padding: 20px 15px;
-    }
-
-    .header-content {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
+/* Hover */
+body.dark-theme tbody tr:hover {
+    background: #374151;
 }
 
-@media (max-width: 600px) {
+/* ==========================================
+   BUSINESS INSIGHTS
+========================================== */
 
-    .cards {
-        grid-template-columns: 1fr;
-    }
+body.dark-theme .insight {
+    background: #111827;
+    color: #f3f4f6;
+    border-left-color: #3b82f6;
+}
 
-    .charts {
-        grid-template-columns: 1fr;
-    }
+body.dark-theme .insight strong {
+    color: #ffffff;
+}
 
-    .header-buttons {
-        width: 100%;
-    }
+/* ==========================================
+   HEADER BUTTONS
+========================================== */
 
-    .header-buttons button {
-        flex: 1;
-    }
+.header-buttons button {
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
 
+.header-buttons button:hover {
+    background: rgba(255, 255, 255, 0.22);
 }
